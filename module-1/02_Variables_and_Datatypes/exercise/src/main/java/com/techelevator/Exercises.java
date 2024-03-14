@@ -258,79 +258,105 @@ public class Exercises {
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
-
+        int numTotalButterflies = 33;
+        int numOrangeButterflies = 20;
+        int numRedButterfiles = numTotalButterflies - numOrangeButterflies;
 
         /* Exercise 29
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
-
+        double amountPaid = 1.0;
+        double candyCost = 0.54;
+        double change = amountPaid - candyCost;
 
         /* Exercise 30
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
         */
-
+        int treesInBackyard = 13;
+        int treesPlanted = 12;
+        int totalTrees = treesInBackyard + treesPlanted;
 
         /* Exercise 31
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
-
+        final int HOURS_PER_DAY = 24;
+        int hoursUntilSeeingGrandma = 2 * HOURS_PER_DAY;
 
         /* Exercise 32
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
-
+        int numCousins = 4;
+        int numPiecesPerCousin = 5;
+        int totalPiecesOfGum = numCousins * numPiecesPerCousin;
 
         /* Exercise 33
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
-
+        double moneyDanHas = 3.0;
+        double candyBarCost = 1.0;
+        double moneyRemaining = moneyDanHas - candyBarCost;
 
         /* Exercise 34
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
         */
-
+        int numBoats = 5;
+        int peoplePerBoat = 3;
+        int totalPeopleOnLake = numBoats * peoplePerBoat;
 
         /* Exercise 35
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
-
+        int numLegosInitial = 380;
+        int numLegosLost = 57;
+        int numLegosRemaining = numLegosInitial - numLegosLost;
 
         /* Exercise 36
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
         bake to have 83 muffins?
         */
-
+        int totalMuffinsDesired = 83;
+        int numMuffinsBaked = 35;
+        int numMuffinsNeedToBake = totalFirstGradeMuffins - numMuffinsBaked;
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
-
+        int willyCrayons = 1400;
+        int lucyCrayons = 290;
+        int howManyMoreCrayonsWillyThanLucy = willyCrayons - lucyCrayons;
 
         /* Exercise 38
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
         many stickers do you have?
         */
-
+        int stickersPerPage = 10;
+        int numPages = 22;
+        int totalStickers = stickersPerPage * numPages;
 
         /* Exercise 39
         39. There are 100 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
-
+        int totalCupcakes = 100;
+        int numChildren = 8;
+        int cupcakesPerChild = totalCupcakes / numChildren;
 
         /* Exercise 40
         40. She made 47 gingerbread cookies which she will distribute equally in
         tiny glass jars. If each jar is to contain six cookies, how many
         cookies will not be placed in a jar?
         */
+        int totalCookies = 47;
+        int cookiesPerJar = 6;
+        int cookiesNotInJar = totalCookies % cookiesPerJar;
 
 
         /* Exercise 41
@@ -338,49 +364,64 @@ public class Exercises {
         neighbors. If each neighbor received an equal number of croissants,
         how many will be left with Marian?
         */
-
+        int totalCroissants = 59;
+        int numNeighbors = 8;
+        int croissantsLeft = 59 % 8;
 
         /* Exercise 42
         42. Marian also baked oatmeal cookies for her classmates. If she can
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
-
+        int totalOatmealCookies = 276;
+        int cookiesPerTray = 12;
+        int numTrays = totalOatmealCookies / cookiesPerTray;
 
         /* Exercise 43
         43. Marian’s friends were coming over that afternoon so she made 480
         bite-sized pretzels. If one serving is equal to 12 pretzels, how many
         servings of bite-sized pretzels was Marian able to prepare?
         */
-
+        int totalPretzels = 480;
+        int pretzelsPerServing = 12;
+        int numServingsOfPretzels = totalPretzels / pretzelsPerServing;
 
         /* Exercise 44
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
-
+        int totalLemonCupcakes = 53;
+//        int numLemonCupcakesLeftAtHome = 2;
+        int lemonCupcakesPerBox = 3;
+        int numBoxesOfLemonCupakesGivenAway = totalLemonCupcakes / lemonCupcakesPerBox;
 
         /* Exercise 45
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
-
+        int totalCarrots = 74;
+        int numPeople = 12;
+        int carrotsRemaining = totalCarrots % numPeople;
 
         /* Exercise 46
         46. Susie and her sister gathered all 98 of their teddy bears and placed
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
-
+        int numBears = 98;
+        int bearsPerShelf = 7;
+        int numShelvesFilled = numBears / bearsPerShelf;
 
         /* Exercise 47
         47. Susie’s mother collected all family pictures and wanted to place all of
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
-
+        int picturesPerAlbum = 20;
+        int totalPictures = 480;
+        int albumsNeeded = totalPictures / picturesPerAlbum;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -388,19 +429,26 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
-
+        int totalCards = 94;
+        int cardsPerBox = 8;
+        int numBoxesFilled = totalCards / cardsPerBox;
+        int numCardsInUnfilledBox = totalCards % cardsPerBox;
 
         /* Exercise 49
         49. The Milky Way galaxy contains 300 billion stars. The Andromeda galaxy
         contains 1 trillion stars. How many stars do the two galaxies contain combined?
         */
-
+        long milkyWayStars = 300_000_000_000L;
+        long andromedaStars = 1_000_000_000_000L;
+        long totalStars = milkyWayStars + andromedaStars;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-
+        int numCroissants = 17;
+        int numGuests = 7;
+        int croissantsPerGuest = numCroissants / numGuests;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -408,7 +456,11 @@ public class Exercises {
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-     
+        double billRoomsPerHour = 2.15;
+        double jillRoomsPerHour = 1.9;
+        double combinedRoomsPerHour = billRoomsPerHour + jillRoomsPerHour;
+        int numRooms = 5;
+        double hoursToPaintAllRoomsWorkingTogether = numRooms / combinedRoomsPerHour;
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -417,13 +469,18 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
-
+        String firstName = "Grace";
+        String lastName = "Hopper";
+        String middleInitial = "B";
+        String fullName = lastName + ", " + firstName + " " + middleInitial + ".";
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
-
+        final int DIST_NY_CHICAGO_MILES = 800;
+        int distanceTravelledMiles = 537;
+        int percentCompleted = (int) (DIST_NY_CHICAGO_MILES / (double) distanceTravelledMiles);
     }
 
 }
