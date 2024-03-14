@@ -448,7 +448,7 @@ public class Exercises {
         */
         int numCroissants = 17;
         int numGuests = 7;
-        int croissantsPerGuest = numCroissants / numGuests;
+        double croissantsPerGuest = (double) numCroissants / numGuests;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
@@ -456,8 +456,8 @@ public class Exercises {
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-        double billRoomsPerHour = 2.15;
-        double jillRoomsPerHour = 1.9;
+        double billRoomsPerHour = 1 / 2.15;
+        double jillRoomsPerHour = 1 / 1.9;
         double combinedRoomsPerHour = billRoomsPerHour + jillRoomsPerHour;
         int numRooms = 5;
         double hoursToPaintAllRoomsWorkingTogether = numRooms / combinedRoomsPerHour;
@@ -478,9 +478,9 @@ public class Exercises {
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
-        final int DIST_NY_CHICAGO_MILES = 800;
-        int distanceTravelledMiles = 537;
-        int percentCompleted = (int) (DIST_NY_CHICAGO_MILES / (double) distanceTravelledMiles);
+        final double DIST_NY_CHICAGO_MILES = 800.0;
+        double distanceTravelledMiles = 537.0;
+        int percentCompleted = (int) ((distanceTravelledMiles / DIST_NY_CHICAGO_MILES) * 100);
     }
 
 }
