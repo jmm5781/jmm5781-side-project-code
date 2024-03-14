@@ -323,7 +323,7 @@ public class Exercises {
         */
         int totalMuffinsDesired = 83;
         int numMuffinsBaked = 35;
-        int numMuffinsNeedToBake = totalFirstGradeMuffins - numMuffinsBaked;
+        int numMuffinsNeedToBake = totalMuffinsDesired - numMuffinsBaked;
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
@@ -347,7 +347,7 @@ public class Exercises {
         */
         int totalCupcakes = 100;
         int numChildren = 8;
-        int cupcakesPerChild = totalCupcakes / numChildren;
+        double cupcakesPerChild = (double) totalCupcakes / numChildren;
 
         /* Exercise 40
         40. She made 47 gingerbread cookies which she will distribute equally in
