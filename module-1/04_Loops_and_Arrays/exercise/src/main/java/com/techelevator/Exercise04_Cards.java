@@ -1,11 +1,13 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercise04_Cards {
 
     /*
     The folks at Scamper Shipping like to play a bit
     of virtual poker at lunch, Five Card Draw, no Jokers. The deck
-    is represented an array of strings, encoded as:
+    is represented by an array of strings, encoded as:
 
         * "1-C" through "10-C", "J-C", "Q-C", "K-C"
         * "1-D" through "10-D", "J-D", "Q-D", "K-D"
@@ -25,7 +27,7 @@ public class Exercise04_Cards {
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
     public String getFirstCard(String[] hand) {
-        return "";
+        return hand[0];
     }
 
     /*
@@ -42,7 +44,13 @@ public class Exercise04_Cards {
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
      */
     public String[] discardFirstCard(String[] hand) {
-        return new String[] {};
+        String[] fourCardsRemaining = new String[4];
+
+        for (int i = 1; i < hand.length; i++) {
+            fourCardsRemaining[i - 1] = hand[i];
+        }
+
+        return fourCardsRemaining;
     }
 
     /*
@@ -61,6 +69,15 @@ public class Exercise04_Cards {
     discardTopCard([]) → []
      */
     public String[] discardTopCard(String[] remainingDeck) {
-        return new String[] {};
+        if (remainingDeck.length == 0) {
+            return new String[0];
+        }
+
+        String[] shorterDeck = new String[remainingDeck.length - 1];
+        for (int i = 1; i < remainingDeck.length; i++) {
+            shorterDeck[i - 1] = remainingDeck[i];
+        }
+
+        return shorterDeck;
     }    
 }

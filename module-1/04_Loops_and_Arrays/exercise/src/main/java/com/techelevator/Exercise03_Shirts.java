@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercise03_Shirts {
 
     private final static char SMALL_TSHIRT = 'S';
@@ -17,7 +19,7 @@ public class Exercise03_Shirts {
     buildOrder() → ['S', 'S', 'S', 'M', 'M', 'L']
      */
     public char[] buildOrder() {
-        return new char[] {};    
+        return new char[] {'S', 'S', 'S', 'M', 'M', 'L'};
     }
 
     /*
@@ -36,8 +38,25 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
-    public char[] buildBulkOrder(int numberOfShirts) { 
-        return new char[] {};    
+    public char[] buildBulkOrder(int numberOfShirts) {
+        char[] shirts = new char[numberOfShirts];
+
+        if (numberOfShirts == 0) {
+            return new char[0];
+        }
+
+        shirts[0] = 'S';
+        for (int i = 1; i < numberOfShirts; i++) {
+            shirts[i] = getNextShirt(shirts[i - 1]);
+        }
+        return shirts;
+    }
+
+    public char getNextShirt(char shirt) {
+        if (shirt == 'S') return 'M';
+        if (shirt == 'M') return 'L';
+        if (shirt == 'L') return 'S';
+        return '\0';
     }
 
     /*
@@ -54,6 +73,13 @@ public class Exercise03_Shirts {
     placeRequest([]) → false
      */
     public boolean placeRequest(char[] order) {
-        return false; 
+        boolean isSmallShirtOrdered = false;
+        for (int i = 0; i < order.length; i++) {
+            if (order[i] == 'S') {
+                isSmallShirtOrdered = true;
+                break;
+            }
+        }
+        return isSmallShirtOrdered;
     }
 }

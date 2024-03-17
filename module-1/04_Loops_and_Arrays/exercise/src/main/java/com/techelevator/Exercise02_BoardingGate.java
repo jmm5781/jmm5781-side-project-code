@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercise02_BoardingGate {
 
     /*
@@ -27,7 +29,11 @@ public class Exercise02_BoardingGate {
     generateSeatingChart(2) → [AVAILABLE, AVAILABLE]
      */
     public boolean[] generateSeatingChart(int numberOfSeats) {
-        return new boolean[] {};
+        boolean [] seats = new boolean[numberOfSeats];
+        for (int i = 0; i < seats.length; i++) {
+            seats[i] = AVAILABLE;
+        }
+        return seats;
     }
 
     /*
@@ -46,7 +52,13 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
-        return 0;
+        int numSeatsAvailable = 0;
+        for (int i = 0; i < seatingChart.length; i++) {
+            if (seatingChart[i] == AVAILABLE) {
+                numSeatsAvailable++;
+            }
+        }
+        return numSeatsAvailable;
     }
 
     /*
@@ -62,7 +74,26 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([OCCUPIED, AVAILABLE, AVAILABLE, OCCUPIED, AVAILABLE, AVAILABLE]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-        return 0;
+
+        int SEATS_PER_ROW = 3;
+        int numRows = seatingChart.length / SEATS_PER_ROW;
+        boolean[][] seats = new boolean[numRows][SEATS_PER_ROW];
+        for (int i = 0; i < seatingChart.length; i++) {
+                seats[i / SEATS_PER_ROW][i % SEATS_PER_ROW] = seatingChart[i];
+        }
+
+        int numFullRows = 0;
+        for (int i = 0; i < numRows; i++) {
+            boolean isFullRow = true;
+            for (int j = 0; j < SEATS_PER_ROW; j++) {
+                if (seats[i][j] == AVAILABLE) {
+                    isFullRow = false;
+                    break;
+                }
+            }
+            numFullRows += isFullRow ? 1 : 0;
+        }
+        return numFullRows;
     }
 
 }

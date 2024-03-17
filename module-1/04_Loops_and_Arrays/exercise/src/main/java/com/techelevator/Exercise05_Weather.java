@@ -1,8 +1,11 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercise05_Weather {
 
     private final static int FREEZING_TEMPERATURE = 32;
+    private final static int MIN_TEMPERATURE_FAHRENHEIT = -460;
 
     /*
     GaleForce Meteorologists recently developed a new weather station and need it to perform
@@ -25,7 +28,17 @@ public class Exercise05_Weather {
 	belowFreezing([]) → 0
     */
 	public int belowFreezing(int[] dailyHighs) {
-		return 0;
+        if (dailyHighs.length == 0) {
+            return 0;
+        }
+
+        int numDaysFreezingOrBelow = 0;
+        for (int i = 0; i < dailyHighs.length; i++) {
+            if (dailyHighs[i] <= FREEZING_TEMPERATURE) {
+                numDaysFreezingOrBelow++;
+            }
+        }
+        return numDaysFreezingOrBelow;
 	}
 
     /*
@@ -43,7 +56,14 @@ public class Exercise05_Weather {
 	hottestDay([55]) → 55
     */
     public int hottestDay(int[] dailyHighs) {
-        return 0;
+
+        int highestTempSoFar = MIN_TEMPERATURE_FAHRENHEIT;
+        for (int i = 0; i < dailyHighs.length; i++) {
+            if (dailyHighs[i] > highestTempSoFar) {
+                highestTempSoFar = dailyHighs[i];
+            }
+        }
+        return highestTempSoFar;
     }
 
     /*
@@ -61,6 +81,13 @@ public class Exercise05_Weather {
 	fixTemperatures([]) → []
      */
     public int[] fixTemperatures(int[] temperatures) {
-        return new int[] {};
+        if (temperatures.length == 0) {
+            return temperatures;
+        }
+
+        for (int i = 0; i < temperatures.length; i += 2) {
+            temperatures[i] += 2;
+        }
+        return temperatures;
     }
 }
