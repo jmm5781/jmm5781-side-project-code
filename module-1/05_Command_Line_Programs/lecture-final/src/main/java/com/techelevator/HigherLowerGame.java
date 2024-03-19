@@ -76,7 +76,7 @@ public class HigherLowerGame {
             }
 
             // Output final message with number of tries for the user
-            System.out.println("Got it! You took " + tries + ".");
+            System.out.println("Got it! You took " + tries + " tries.");
 
 
             // 7. Store the number of tries in the array holding the scores
@@ -110,7 +110,7 @@ public class HigherLowerGame {
 
         String winner = "";
 
-        // oop through all the player and:
+        // Loop through all the players and:
         //      1) print a message like this Yoav: 10 tries.
         //      2) check if the score for the current player is lower than lowest number of tries
         //      3) if it is

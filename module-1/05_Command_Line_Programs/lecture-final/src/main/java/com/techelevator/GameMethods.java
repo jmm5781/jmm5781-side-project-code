@@ -44,7 +44,7 @@ public class GameMethods {
 
     public boolean getInputAndCheckForMatch(Scanner input, int numToMatch) {
         System.out.println();
-        System.out.print("Enter yor guess: ");
+        System.out.print("Enter your guess: ");
         String userInput = input.nextLine();
         if (GameUtils.isNumber(userInput)) {
             int guess = Integer.parseInt(userInput);
