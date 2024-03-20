@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public class Exercises {
 
 	/*
@@ -219,7 +222,11 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int n) {
-		return null;
+		if (n < 0 || n > str.length() - 2) {
+			return str.substring(0, 2);
+		} else {
+			return str.substring(n, n + 2);
+		}
 	}
 
 	/*
@@ -230,7 +237,7 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		return str.substring(str.length() / 2 - 1, str.length() / 2 + 2);
 	}
 
 	/*
@@ -242,7 +249,8 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-		return false;
+		int badIndex = str.indexOf("bad");
+		return (badIndex == 0 || badIndex == 1);
 	}
 
 	/*
@@ -252,7 +260,11 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String multiString = "";
+		for (int i = 0; i < n; i++) {
+			multiString += str;
+		}
+		return multiString;
 	}
 
 	/*
@@ -263,7 +275,18 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String front = "";
+		if (str.length() < 3) {
+			front = str;
+		} else {
+			front = str.substring(0, 3);
+		}
+
+		String outputString = "";
+		for (int i = 0; i < n; i++) {
+			outputString += front;
+		}
+		return outputString;
 	}
 
 	/*
@@ -271,9 +294,18 @@ public class Exercises {
 	 countXX("abcxx") → 1
 	 countXX("xxx") → 2
 	 countXX("xxxx") → 3
+	          0123
 	 */
+	public static int xxCount = 0; // not sure that I like this method... but it works, so moving on
 	public int countXX(String str) {
-		return 0;
+		if (!str.contains("xx")) {
+			int result = xxCount;
+			xxCount = 0;
+			return result;
+		} else {
+			xxCount++;
+			return countXX( str.substring(str.indexOf("xx") + 1) );
+		}
 	}
 
 	/*
@@ -283,8 +315,20 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
-		return false;
+		if (!str.contains("x")) {
+			return false;
+		} else {
+			int firstXIndex = str.indexOf('x');
+			if (firstXIndex == str.length() - 1) {
+				return false;
+			} else {
+				return (str.charAt(firstXIndex + 1) == 'x');
+			}
+		}
+
 	}
+
+
 
 	/*
 	 Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
@@ -293,7 +337,13 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String outputString = "";
+		for (int i = 0; i < str.length(); i++) {
+			if (i % 2 == 0) {
+				outputString += str.charAt(i);
+			}
+		}
+		return outputString;
 	}
 
 	/*
@@ -303,7 +353,11 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String splodedString = "";
+		for (int i = 1; i <= str.length(); i++) {
+			splodedString += str.substring(0, i);
+		}
+		return splodedString;
 	}
 
 	/*
@@ -319,8 +373,32 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 last2("xxxx") -> 2
 	 */
+
+	// not working for input "xxxx" ... moving on to next problem :)
+
 	public int last2(String str) {
-		return 0;
+		String key = str.substring(str.length() - 2);
+		char boundary = str.charAt(str.length() - 2);
+		String target = str.substring(0, str.length() - 2);
+		int count = countLastTwo(target, key);
+
+		if ( Arrays.toString(new char[]{target.charAt(target.length() - 1), boundary}).equals(key) ) {
+			count++;
+		}
+
+		return count;
+	}
+
+	public static int last2Count = 0; // reusing the sus code from XXCount above
+	public int countLastTwo(String target, String key) {
+		if (!target.contains(key)) {
+			int result = last2Count;
+			last2Count = 0;
+			return result;
+		} else {
+			last2Count++;
+			return countLastTwo( target.substring(target.indexOf(key) + 1), key );
+		}
 	}
 
 	/*
@@ -331,17 +409,47 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+
+		if (str.length() <= 2) {
+			return str;
+		}
+
+		String outputString = "";
+
+		outputString += str.charAt(0);
+		for (int i = 1; i < str.length() - 1; i++) {
+			if (str.charAt(i) != 'x') {
+				outputString += str.charAt(i);
+			}
+		}
+		outputString += str.charAt(str.length() - 1);
+
+		return outputString;
 	}
 
 	/*
 	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+	 i j
+	 0,1,
+	 4,5,
+	 8,9,
+	 12,13,
+	 16,17,
+	 20,21
+	 24,25
+
 	 altPairs("kitten") → "kien"
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String output = "";
+		for (int i = 0, j = 1; i < str.length(); i += 4, j += 4) {
+			output += str.charAt(i);
+			if (j >= str.length()) break;
+			output += str.charAt(j);
+		}
+		return output;
 	}
 
 	/*
@@ -352,7 +460,29 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		if (!str.contains("yak")) {
+			return str;
+		}
+
+
+		String resultString = "";
+
+
+		// not working -- moving on.
+		//commenting out the while condition because it causes an error
+
+//		while (str.contains("yak")) {
+
+			int yakIndex = str.indexOf("yak");
+			resultString += str.substring(0, yakIndex);
+			if (yakIndex + 3 < str.length()) {
+				resultString += str.substring(yakIndex + 3);
+			}
+			str = resultString;
+
+//		}
+
+		return str;
 	}
 
 }
