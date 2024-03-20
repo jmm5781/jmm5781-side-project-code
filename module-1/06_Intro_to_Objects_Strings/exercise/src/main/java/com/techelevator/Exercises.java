@@ -9,7 +9,7 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		return "Hello " + name + "!";
 	}
 
 	/*
@@ -20,7 +20,7 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		return a + b + b + a;
 	}
 
 	/*
@@ -32,7 +32,7 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		return "<" + tag + ">" + word + "</" + tag + ">";
 	}
 
 	/*
@@ -44,7 +44,9 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String prefix = out.substring(0, out.length() / 2);
+		String suffix = out.substring(out.length() / 2);
+		return prefix + word + suffix;
 	}
 
 	/*
@@ -55,7 +57,8 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		String lastTwoChars = str.substring(str.length() - 2);
+		return lastTwoChars + lastTwoChars + lastTwoChars;
 	}
 
 	/*
@@ -67,7 +70,13 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		String outputString = "";
+		if (str.length() < 2) {
+			outputString = str;
+		} else {
+			outputString += str.substring(0, 2);
+		}
+		return outputString;
 	}
 
 	/*
@@ -77,7 +86,7 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		return str.substring(0, str.length() / 2);
 	}
 
 	/*
@@ -88,7 +97,7 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		return str.substring(1, str.length() - 1);
 	}
 
 	/*
@@ -100,7 +109,14 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		String shorter = a;
+		String longer = b;
+		if (shorter.length() > longer.length()) {
+			String temp = shorter;
+			shorter = longer;
+			longer = temp;
+		}
+		return shorter + longer + shorter;
 	}
 
 	/*
@@ -111,7 +127,7 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+		return a.substring(1) + b.substring(1);
 	}
 
 	/*
