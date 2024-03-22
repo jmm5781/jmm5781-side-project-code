@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,8 +35,38 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		Map<String, String> groupNames = new HashMap<>();
+
+		String animalNameWithCapitalizedFirstLetter = capitalizeFirstLetter(animalName);
+
+		groupNames.put("Rhino", "Crash");
+		groupNames.put("Giraffe", "Tower");
+		groupNames.put("Elephant", "Herd");
+		groupNames.put("Lion", "Pride");
+		groupNames.put("Crow", "Murder");
+		groupNames.put("Pigeon", "Kit");
+		groupNames.put("Flamingo", "Pat");
+		groupNames.put("Deer", "Herd");
+		groupNames.put("Dog", "Pack");
+		groupNames.put("Crocodile", "Float");
+
+		if (groupNames.get(animalNameWithCapitalizedFirstLetter) ==  null) return "unknown";
+		if (groupNames.get(animalNameWithCapitalizedFirstLetter).equals("")) return "unknown";
+		if (!groupNames.containsKey(animalNameWithCapitalizedFirstLetter)) return "unknown";
+
+		return groupNames.get(capitalizeFirstLetter(animalName));
 	}
+
+	String capitalizeFirstLetter(String str) {
+		if (str == null) return str;
+		if (str.equals("")) return str;
+
+		char firstLetter = str.charAt(0);
+		String lowerCaseStr = str.toLowerCase();
+		return String.valueOf(firstLetter).toUpperCase() + lowerCaseStr.substring(1);
+	}
+
+
 
 	/*
 	 * Given a String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -60,7 +91,23 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		if (itemNumber == null || itemNumber.isEmpty()) return 0.00;
+
+		Map<String, Double> discount = new HashMap<>();
+		discount.put("KITCHEN4001", 0.20);
+		discount.put("GARAGE1070", 0.15);
+		discount.put("LIVINGROOM", 0.10);
+		discount.put("KITCHEN6073", 0.40);
+		discount.put("BEDROOM3434", 0.60);
+		discount.put("BATH0073", 0.15);
+
+		String itemNumberCapitalized = itemNumber.toUpperCase();
+		if (!discount.containsKey(itemNumberCapitalized)) {
+			return 0.00;
+		}
+
+		return discount.get(itemNumberCapitalized);
+
 	}
 
 	/*
@@ -76,7 +123,18 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		if (peterPaul.get("Paul") >= 1000) {
+			return peterPaul;
+		}
+
+		if (peterPaul.get("Peter") > 0) {
+			Integer halfPeterAmt = peterPaul.get("Peter") - peterPaul.get("Peter") / 2;
+			Integer paulInitialAmt = peterPaul.get("Paul");
+			peterPaul.put("Paul", paulInitialAmt + peterPaul.get("Peter") / 2);
+			peterPaul.put("Peter", halfPeterAmt);
+
+		}
+		return peterPaul;
 	}
 
 	/*
@@ -89,7 +147,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		Integer initialPeterAmt = peterPaul.get("Peter");
+		Integer initialPaulAmt = peterPaul.get("Paul");
+		Integer quarterPeterAmt = peterPaul.get("Peter") / 4;
+		Integer quarterPaulAmt = peterPaul.get("Paul") / 4;
+
+		if (peterPaul.get("Peter") >= 5000 && peterPaul.get("Paul") >= 10000) {
+			peterPaul.put("Peter", initialPeterAmt - quarterPeterAmt);
+			peterPaul.put("Paul", initialPaulAmt - quarterPaulAmt);
+			peterPaul.put("PeterPaulPartnership", quarterPaulAmt + quarterPeterAmt);
+		}
+
+		return peterPaul;
+
+
 	}
 
 	/*
@@ -104,7 +175,13 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> resultMap = new HashMap<>();
+		for (String word : words) {
+			String firstChar = word.substring(0, 1);
+			String lastChar = word.substring(word.length() - 1);
+			resultMap.put(firstChar, lastChar);
+		}
+		return resultMap;
 	}
 
 	/*
@@ -120,7 +197,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> appearances = new HashMap<>();
+
+		for (String word : words) {
+
+			if (!appearances.containsKey(word)) {
+				appearances.put(word, 1);
+			} else {
+				int numAppearancesSoFar = appearances.get(word);
+				appearances.put(word, numAppearancesSoFar + 1);
+			}
+
+		}
+		
+		return appearances;
 	}
 
 	/*
