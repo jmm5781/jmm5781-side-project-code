@@ -209,7 +209,7 @@ public class Exercises {
 			}
 
 		}
-		
+
 		return appearances;
 	}
 
@@ -225,7 +225,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> appearances = new HashMap<>();
+
+		for (Integer num : ints) {
+
+			if (!appearances.containsKey(num)) {
+				appearances.put(num, 1);
+			} else {
+				int numAppearancesSoFar = appearances.get(num);
+				appearances.put(num, numAppearancesSoFar + 1);
+			}
+
+		}
+
+		return appearances;
 	}
 
 	/*
@@ -238,7 +251,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> appearedTwice = new HashMap<>();
+
+		// word appears zero times: key doesn't exist yet
+		//   one time: value set to false
+		//   two or more times: value set to true
+
+		for (String word : words) {
+
+			if (!appearedTwice.containsKey(word)) {
+				appearedTwice.put(word, false);
+			} else {
+				appearedTwice.put(word, true);
+			}
+
+		}
+
+		return appearedTwice;
 	}
 
 	/*
@@ -253,7 +282,18 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String, Integer>  resultInventory = new HashMap<>();
+
+		for (Map.Entry<String, Integer> mainEntry : mainWarehouse.entrySet()) {
+			String mainKey = mainEntry.getKey();
+			Integer mainValue = mainEntry.getValue();
+			if (remoteWarehouse.containsKey(mainKey)) {
+				resultInventory.put(mainKey, mainEntry.getValue() + remoteWarehouse.get(mainKey));
+			} else {
+				resultInventory.put(mainKey, mainValue);
+			}
+		}
+		return resultInventory;
 	}
 
 	/*
@@ -272,7 +312,29 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> last2CountMap = new HashMap<>();
+
+		for (String word : words) {
+			last2CountMap.put(word, last2Count(word));
+		}
+		return last2CountMap;
+	}
+
+	public Integer last2Count(String str) {
+		if (str.length() < 2 ) {
+			return 0;
+		}
+
+		String last2Chars = str.substring(str.length() - 2);
+
+		int numStringsMatchingLast2 = 0;
+		for (int i = 0; i < str.length() - 2; i++) {
+			String subStr = str.substring(i, i + 2);
+			if (subStr.equals(last2Chars)) {
+				numStringsMatchingLast2++;
+			}
+		}
+		return numStringsMatchingLast2;
 	}
 
 }
