@@ -3,41 +3,31 @@ package com.techelevator;
 /**
  * Book
  */
-public class Book {
+public class Book extends MediaItem {
 
-    private String title;
-    private String author;
-    private double price;
-    
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	private String author;
+
 	public String getAuthor() {
 		return author;
 	}
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 
 	public Book(String title, String author, double price) {
-	    this.title = title;
+	   	super(title, price);
 	    this.author = author;
-	    this.price = price;
+
 	}
 	
 	public Book() {
+		super();
 	}
 
-	public String bookInfo() {
-	    return "Title: " + title + ", Author: " + author + ", Price: $" + price;
+	@Override
+	public String toString() {
+	    return  "Title: " + getTitle() +
+				", Author: " + this.author +
+				", Price: $" + this.getPrice();
 	}
 }
