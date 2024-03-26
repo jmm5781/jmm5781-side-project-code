@@ -13,7 +13,6 @@ public class SavingsAccount extends BankAccount {
     }
     @Override
     public int withdraw(int amountToWithdraw) {
-        int balance = getBalance();
 
         if (amountToWithdraw <= 0) {
             return balance;

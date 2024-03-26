@@ -3,7 +3,11 @@ package com.techelevator;
 public class BankAccount {
     private String accountHolderName;
     private String accountNumber;
-    private int balance;
+
+    // **** Need to figure out the best way to do this without
+    // **** making BankAccount's balance property protected (vs. private)
+    // **** ... or maybe using protected is ok here.
+    protected int balance;
 
     public String getAccountHolderName() {
         return accountHolderName;
@@ -15,8 +19,13 @@ public class BankAccount {
         return balance;
     }
 
-    public BankAccount(String accountHolderName, String accountNumber) {}
+    public BankAccount(String accountHolderName, String accountNumber) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+    }
     public BankAccount(String accountHolderName, String accountNumber, int balance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
