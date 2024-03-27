@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise {
@@ -14,8 +15,12 @@ public class Exercise {
     average([2.0,2.0]) --> 2.0
      */
     public double average(double[] values) {
-
-        return 0;
+        double sum = 0.0;
+        for (double value : values) {
+            sum += value;
+        }
+        double avg = sum / values.length;
+        return avg;
     }
 
     /*
@@ -31,8 +36,10 @@ public class Exercise {
     greeting("Carly") --> "Hello Carly!"
      */
     public String specificGreeting(String name) {
-
-        return null;
+        if (name.equals("Bob")) {
+            name = "Robert";
+        }
+        return "Hello " + name + "!";
     }
 
     /*
@@ -53,7 +60,15 @@ public class Exercise {
 
     public List<String> getEmployeeNames(String [] data) {
 
-        return null;
+        List<String> employeeNames = new ArrayList<>();
+        
+        for (int i = 0; i < data.length; i++) {
+            if (i % 3 == 1) {
+                employeeNames.add(data[i]);
+            }
+        }
+
+        return employeeNames;
     }
 
 }
