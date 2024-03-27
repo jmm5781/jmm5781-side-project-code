@@ -1,4 +1,6 @@
-package com.techelevator;
+package com.techelevator.challenge;
+
+import java.math.BigDecimal;
 
 public class BankAccount {
     private String accountHolderName;
@@ -6,7 +8,7 @@ public class BankAccount {
     // **** Need to figure out the best way to do this without
     // **** making BankAccount's balance property protected (vs. private)
     // **** ... or maybe protected is fine.
-    protected int balance;
+    protected BigDecimal balance;
 
     public String getAccountHolderName() {
         return accountHolderName;
@@ -14,7 +16,7 @@ public class BankAccount {
     public String getAccountNumber() {
         return accountNumber;
     }
-    public int getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
@@ -22,24 +24,28 @@ public class BankAccount {
         this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
     }
-    public BankAccount(String accountHolderName, String accountNumber, int balance) {
+    public BankAccount(String accountHolderName, String accountNumber, BigDecimal balance) {
         this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
 
-    public int deposit(int amountToDeposit) {
-        if (amountToDeposit <= 0) {
+    public BigDecimal deposit(BigDecimal amountToDeposit) {
+
+        if (amountToDeposit.compareTo(BigDecimal.ZERO) <= 0) {
             return balance;
         }
-        balance += amountToDeposit;
+
+        balance = balance.add(balance);
         return balance;
     }
-    public int withdraw(int amountToWithdraw) {
-        if (amountToWithdraw <= 0) {
+
+    public BigDecimal withdraw(BigDecimal amountToWithdraw) {
+        if (amountToWithdraw.compareTo(BigDecimal.ZERO) <= 0) {
             return balance;
         }
-        balance -= amountToWithdraw;
+//      balance -= amountToWithdraw;
+        balance = balance.subtract(amountToWithdraw);
         return balance;
     }
 }
