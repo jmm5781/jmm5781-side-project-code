@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class SavingsAccount extends BankAccount {
+public class SavingsAccount extends BankAccount implements Accountable {
 
     public static final int LOW_BALANCE = 150;
     public static final int SERVICE_CHARGE = 2;

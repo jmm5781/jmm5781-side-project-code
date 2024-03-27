@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class CheckingAccount extends BankAccount {
+public class CheckingAccount extends BankAccount implements Accountable {
 
     public static final int MINIMUM_BALANCE = -100;
     public static final int OVERDRAFT_FEE = 10;
