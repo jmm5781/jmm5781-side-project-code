@@ -48,9 +48,7 @@ public class HotelsApplication {
 
         }
 
-
         System.out.println("Bye!");
-
     }
 
     public void handleHotelsFunction() {

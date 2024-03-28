@@ -21,6 +21,7 @@ public class ConsoleManager {
             System.out.println("2. Quick reservation lookup");
             System.out.println();
             System.out.print("Enter your choice (X to exit): ");
+
             choice = userInput.nextLine();
             if (choice.equalsIgnoreCase("1") || choice.equalsIgnoreCase("2")
                     || choice.equalsIgnoreCase("X")) {
@@ -34,9 +35,7 @@ public class ConsoleManager {
 
     public Hotel getHotelChoice(List<Hotel> hotels) {
 
-
         boolean done = false;
-
         while (!done) {
             System.out.println();
             for (int hotelIndex = 0; hotelIndex < hotels.size(); hotelIndex++) {
@@ -46,7 +45,7 @@ public class ConsoleManager {
             System.out.print("Enter your choice (X to exit): ");
             String choice = userInput.nextLine();
             if (choice.equalsIgnoreCase("x")) {
-                done =true;
+                done = true;
                 continue;
             } else if (AppUtil.isNumber(choice)) {
                 int choiceVal = Integer.parseInt(choice);
