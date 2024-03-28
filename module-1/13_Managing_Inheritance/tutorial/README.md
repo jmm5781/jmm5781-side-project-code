@@ -1,8 +1,12 @@
 # Tutorial for managing inheritance
 
-In this tutorial, you'll be working on classes for a shipping company. You'll create new classes for several delivery options, and use the `abstract`, `final`, and `protected` keywords to require and restrict inheritance.
+In this tutorial, you'll be working on classes for a shipping company. 
+You'll create new classes for several delivery options, and use 
+the `abstract`, `final`, and `protected` keywords to require and restrict 
+inheritance.
 
-To get started, open the tutorial project in IntelliJ. It includes a basic `Shipment` class to represent a package for delivery, and a `Demo` class that you'll use later in the tutorial.
+To get started, open the tutorial project in IntelliJ. It includes a basic `Shipment` class to represent a package for delivery, and a `Demo` class that 
+you'll use later in the tutorial.
 
 ## Design
 
@@ -24,19 +28,30 @@ Each delivery option has the following methods:
 - `getDuration()`
 - getters & setters for each property
 
-What makes each of these types of deliveries unique is the time that it takes to make the delivery. A truck driving across the country takes a lot longer than the Air Delivery. Since each delivery type is unique, each class has a different implementation of the `getDuration()` method.
+What makes each of these types of deliveries unique is the time that it 
+takes to make the delivery. A truck driving across the country takes a lot 
+longer than the Air Delivery. Since each delivery type is unique, each class
+has a different implementation of the `getDuration()` method.
 
-If you were to jump right in and start writing code without any planning, you might end up with the following three classes:
+If you were to jump right in and start writing code without any planning, you 
+might end up with the following three classes:
 
 ![3 Delivery Classes](./img/3-delivery-classes-java.png)
 
-Notice how similar all those classes are. Duplicate code is a red flag - there's probably a better way to design your application. In this case, each of the classes share state - also known as properties - but have one method `getDuration()` that's unique. This is a great opportunity to use an abstract class. A better approach might look like this:
+Notice how similar all those classes are. Duplicate code is a red flag - 
+there's probably a better way to design your application. In this case, 
+each of the classes share state - also known as properties - but have one 
+method `getDuration()` that's unique. This is a great opportunity to use an
+abstract class. A better approach might look like this:
 
 ![3 Delivery Classes](./img/delivery-abstract-class-java.png)
 
 ## Step One: Create the `Delivery` class
 
-Now that you have a good idea of what your application looks like, you can write some code. Start by creating a new package named `com.shippingcompany.delivery` and create a new class `Delivery.java`. Then, create four properties and all of the getters and setters for each:
+Now that you have a good idea of what your application looks like, you can 
+write some code. Start by creating a new package named `com.shippingcompany.delivery` 
+and create a new class `Delivery.java`. Then, create four properties and all of 
+the getters and setters for each:
 
 ```java
 package com.shippingcompany.delivery;
@@ -85,13 +100,19 @@ public class Delivery {
 }
 ```
 
-Next, you need to declare a  `getDuration()` method without providing any implementation, but require any class that extends `Delivery` to implement it. To do this, make it an abstract method:
+Next, you need to declare a  `getDuration()` method without providing any 
+implementation, but require any class that extends `Delivery` to implement it. 
+To do this, make it an abstract method:
 
 ```java
 public abstract int getDuration();
 ```
 
-Only abstract classes can contain abstract methods, so after adding the `abstract` keyword to a method, the IDE marks it as an error until you also add the `abstract` keyword to the class. Making the class abstract means you can't create instances of this class--using it requires inheriting from it. After that, your `Delivery` class looks like this:
+Only abstract classes can contain abstract methods, so after adding the `abstract` 
+keyword to a method, the IDE marks it as an error until you also add the `abstract`
+keyword to the class. Making the class abstract means you can't create instances 
+of this class--using it requires inheriting from it. After that, your `Delivery` 
+class looks like this:
 
 ```java
 package com.shippingcompany.delivery;
