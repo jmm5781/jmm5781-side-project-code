@@ -4,15 +4,20 @@ import java.util.Scanner;
  * TODO
  * [DONE] Make a GameBoard map (extend HashMap or make it an instance variable)
  * Make a win condition check using
- *      (1) bitboards: at least 9 bits
+ *      (1) bitboards: at least 9 bits (use a short??)
  *      -or-
  *      (2) map lookup and comparison
  * [DONE] Print the GameBoard
  * Override toString to print the GameBoard
  * Make a Player class with human and bot options
- * Put the game pieces X, O into a class
+ * Put the game pieces X, O into a class and/or as properties of Player class
  * Add some ASCII art: https://www.asciiart.eu/computers/game-consoles
+ * Try changing text color using ASCII escape codes (results may vary by console, terminal or OS)
  * Add some sounds: https://pixabay.com/sound-effects/search/retro%20games/, Java Sound API
+ *
+ * Long term:
+ * Make it 4x4
+ * Make it 3D (
  */
 
 public class Application {
