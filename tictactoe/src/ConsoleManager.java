@@ -8,7 +8,9 @@ public class ConsoleManager {
 
     public void printWelcomeMessage() {
         System.out.println("\n================ TIC - TAC - TOE ================");
-        System.out.println("\n    *** Hello and welcome to the game! ***\n");
+        System.out.println("    ---------------------------------------");
+        System.out.println("    *** Hello and welcome to the game! ***");
+        System.out.println("    ---------------------------------------");
         System.out.println("=================================================\n");
     }
 
@@ -25,6 +27,21 @@ public class ConsoleManager {
             }
         }
         return Character.toUpperCase(userResponse.charAt(0));
+    }
+
+    public int promptUserToMakeMove(Scanner input) {
+        String userResponse = "";
+        boolean done = false;
+        while (!done) {
+            System.out.print("Enter a number [1-9]: ");
+            userResponse = input.nextLine();
+            if(Utility.isValidResponse1to9(userResponse)) {
+                done = true;
+            } else {
+                System.out.println("Invalid response, please choose a number from 1 to 9");
+            }
+        }
+        return Integer.parseInt(userResponse);
     }
 
     public boolean promptUserToPlayAgain(Scanner input) {
@@ -44,7 +61,9 @@ public class ConsoleManager {
 
     public void printGoodbyeMessage() {
         System.out.println("\n================ TIC - TAC - TOE ================");
-        System.out.println("\n    *** Thanks for Playing! ***\n");
+        System.out.println("    ---------------------------------------");
+        System.out.println("          *** Thanks for Playing! ***");
+        System.out.println("    ---------------------------------------");
         System.out.println("=================================================\n");
     }
 }
