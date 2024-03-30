@@ -19,6 +19,7 @@ import java.util.Scanner;
  * Add some sounds: https://pixabay.com/sound-effects/search/retro%20games/, Java Sound API
  *
  * Long term:
+ * Make it playable over a network
  * Make it 4x4
  * Make it 3D (3x3x3)
  * Add graphics
