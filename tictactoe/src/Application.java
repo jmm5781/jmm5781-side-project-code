@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 /**************
+ *
  * TODO
  * [DONE] Make a GameBoard map (extend HashMap or make it an instance variable)
  * Make a win condition check using
@@ -8,6 +9,8 @@ import java.util.Scanner;
  *      -or-
  *      (2) map lookup and comparison
  * [DONE] Print the GameBoard
+ * Check for invalid int input [1..9] with try/catch
+ * Prevent moving onto an already occupied square
  * Override toString to print the GameBoard
  * Make a Player class with human and bot options
  * Put the game pieces X, O into a class and/or as properties of Player class
@@ -17,7 +20,8 @@ import java.util.Scanner;
  *
  * Long term:
  * Make it 4x4
- * Make it 3D (
+ * Make it 3D (3x3x3)
+ * Add graphics
  */
 
 public class Application {
@@ -50,6 +54,7 @@ public class Application {
 
                 gameBoard.printBoard();
 
+                System.out.print("\nPlayer " + currentPlayerGamePiece + ": "); // TODO -- should say Player 1 or 2
                 currentPlayerMove = consoleManager.promptUserToMakeMove(input);
                 System.out.println(">>>>>>> " + currentPlayerGamePiece + " chose " + currentPlayerMove);
 
