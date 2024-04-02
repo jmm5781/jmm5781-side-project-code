@@ -5,7 +5,7 @@ public class Utility {
     }
 
     public static boolean isValidResponseYorN(String str) {
-        char c = Character.toUpperCase(str.charAt(0));
+        char c = Character.toUpperCase(str.charAt(0)); // TODO try/catch to check for invalid non-character input
         return (c == 'Y' || c == 'N');
     }
 

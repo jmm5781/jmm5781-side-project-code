@@ -38,16 +38,17 @@ public class Application {
         boolean done = false;
         while (!done) {
             System.out.print("Player 1: ");
-            char playerOneGamePiece = consoleManager.promptUserToChooseXorO(input);
+            char playerOneGamePiece = consoleManager.promptUserToChooseXorO(input); // TODO: make a Player class
             System.out.print("--- Player 1 will play as " + playerOneGamePiece + "! ---\t\t--- ");
 
             char playerTwoGamePiece = playerOneGamePiece == 'X' ? 'O' : 'X';
             System.out.println("Player 2 will play as " + playerTwoGamePiece + "! ---");
 
             GameBoard gameBoard = new GameBoard();
+
             int turn = 1;
             boolean thereIsAWinner = false;
-            char currentPlayerGamePiece = playerOneGamePiece;
+            char currentPlayerGamePiece = playerOneGamePiece; // TODO: make a Player class
             int currentPlayerMove = 0;
             while (turn <= MAX_NUMBER_OF_TURNS && !thereIsAWinner) {
                 System.out.println("\n " + currentPlayerGamePiece + "'s turn!");
@@ -55,7 +56,7 @@ public class Application {
                 gameBoard.printBoard();
 
                 System.out.print("\nPlayer " + currentPlayerGamePiece + ": "); // TODO -- should say Player 1 or 2
-                currentPlayerMove = consoleManager.promptUserToMakeMove(input);
+                currentPlayerMove = consoleManager.promptUserToMakeMove(input, gameBoard, currentPlayerGamePiece);
                 System.out.println(">>>>>>> " + currentPlayerGamePiece + " chose " + currentPlayerMove);
 
                 gameBoard.makeMove(currentPlayerMove, currentPlayerGamePiece);
@@ -64,6 +65,7 @@ public class Application {
                 turn++;
             }
 
+            gameBoard.printBoard();
             done = consoleManager.promptUserToPlayAgain(input);
         }
 

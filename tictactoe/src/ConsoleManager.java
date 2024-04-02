@@ -29,19 +29,30 @@ public class ConsoleManager {
         return Character.toUpperCase(userResponse.charAt(0));
     }
 
-    public int promptUserToMakeMove(Scanner input) {
+    public int promptUserToMakeMove(Scanner input, GameBoard gameBoard, char gamePiece) {
         String userResponse = "";
+        int move = 0;
         boolean done = false;
+
         while (!done) {
             System.out.print("Enter a number [1-9]: ");
             userResponse = input.nextLine();
-            if(Utility.isValidResponse1to9(userResponse)) {
-                done = true;
+            if (Utility.isValidResponse1to9(userResponse)) {
+                move = Integer.parseInt(userResponse);
             } else {
                 System.out.println("Invalid response, please choose a number from 1 to 9");
+                continue;
+            }
+
+            if (gameBoard.get(move) == 'X' || gameBoard.get(move) == 'O' ) {
+                System.out.println("Square " + move + " is already occupied! Choose an unoccupied square [1-9]: ");
+            } else {
+                gameBoard.makeMove(move, gamePiece);
+                done = true;
             }
         }
-        return Integer.parseInt(userResponse);
+
+        return move;
     }
 
     public boolean promptUserToPlayAgain(Scanner input) {

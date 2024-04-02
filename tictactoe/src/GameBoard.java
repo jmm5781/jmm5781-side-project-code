@@ -11,7 +11,7 @@ public class GameBoard extends HashMap<Integer, Character> {
         for (int i = 1; i <= 9; i++) {
             Character c = this.get(i);
             System.out.print(" ");
-            System.out.print(c == EMPTY ? i : c.toString());
+            System.out.print(c == EMPTY ? i : c.toString()); // if empty, print the key [1..9]
             System.out.print(" ");
             if (i % 3 == 1 || i % 3 == 2) System.out.print("|");
             if (i % 3 == 0) System.out.println();
@@ -20,6 +20,7 @@ public class GameBoard extends HashMap<Integer, Character> {
     }
 
     public void makeMove(int move, char gamePiece) {
-        this.put(move, gamePiece);
+                this.put(move, gamePiece);
     }
+
 }
