@@ -10,7 +10,7 @@ import java.util.Scanner;
  *      (2) map lookup and comparison
  * [DONE] Print the GameBoard
  * Check for invalid int input [1..9] with try/catch
- * Prevent moving onto an already occupied square
+ * [DONE] Prevent moving onto an already occupied square
  * Override toString to print the GameBoard
  * Make a Player class with human and bot options
  * Put the game pieces X, O into a class and/or as properties of Player class
