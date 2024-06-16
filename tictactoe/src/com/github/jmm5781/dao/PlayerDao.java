@@ -1,8 +1,7 @@
 package com.github.jmm5781.dao;
-import com.github.jmm5781.model.Player;
 
 public interface PlayerDao {
-    Player getPlayerById(int playerId);
+//    Player getPlayerById(int playerId);
 //    Player getPlayerByName(String name);
 //    Player createPlayer(Player player);
 //

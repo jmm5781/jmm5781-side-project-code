@@ -1,8 +1,7 @@
 package com.github.jmm5781;
 
-import com.github.jmm5781.view.*;
-import com.github.jmm5781.dao.*;
-import com.github.jmm5781.model.*;
+import com.github.jmm5781.model.GameBoard;
+import com.github.jmm5781.view.ConsoleManager;
 
 import java.util.Scanner;
 
@@ -45,10 +44,6 @@ import java.util.Scanner;
 public class Application {
     private Scanner input;
     private ConsoleManager consoleManager;
-    private final PlayerDao playerDao;
-    private final LeaderboardDao leaderboardDao;
-    private final SavedGameDao savedGameDao;
-
     private static final int MAX_NUMBER_OF_TURNS = 9;
     public Application() {
         input = new Scanner(System.in);
