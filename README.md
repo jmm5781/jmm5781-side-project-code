@@ -1,3 +1,3 @@
 Tic Tac Toe
 
-This is a side project created while attending the Tech Elevator coding bootcamp.
+This is a side project started while attending the Tech Elevator coding bootcamp.
