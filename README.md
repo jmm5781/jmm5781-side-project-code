@@ -1,1 +1,2 @@
-Repository for side projects started while at Tech Elevator
+# Tic Tac Toe  
+Java command line implementation completed while at Tech Elevator
