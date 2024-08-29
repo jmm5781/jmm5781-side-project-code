@@ -1,8 +1,3 @@
-package com.github.jmm5781.view;
-
-import com.github.jmm5781.model.GameBoard;
-import com.github.jmm5781.model.Utility;
-
 import java.util.Scanner;
 
 public class ConsoleManager {

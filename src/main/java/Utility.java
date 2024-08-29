@@ -1,5 +1,3 @@
-package com.github.jmm5781.model;
-
 public class Utility {
     public static boolean isValidResponseXorO(String str) {
         char c = Character.toUpperCase(str.charAt(0));

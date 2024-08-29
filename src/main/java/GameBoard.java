@@ -1,5 +1,3 @@
-package com.github.jmm5781.model;
-
 import java.util.HashMap;
 
 public class GameBoard extends HashMap<Integer, Character> {

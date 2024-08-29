@@ -1,5 +1,3 @@
-package com.github.jmm5781.model;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 

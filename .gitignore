@@ -35,6 +35,11 @@ node_modules
 /dist
 
 # Add any directories, files, or patterns you don't want to be tracked by version control
+src/main/resources/ASCII_table.txt
+src/main/resources/tictactoe.sql
+src/main/resources/TicTacToeDB.drawio
+src/main/resources/TicTacToeERD.drawio.png
+
 
 # Eclipse
 .classpath

@@ -1,12 +1,6 @@
-package com.github.jmm5781;
-
-import com.github.jmm5781.model.GameBoard;
-import com.github.jmm5781.view.ConsoleManager;
-
 import java.util.Scanner;
 
 /**************
- *
  * TODO
  * Make a win condition check using
  *      (1) bitboards: at least 9 bits (use a short??)
