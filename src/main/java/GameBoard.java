@@ -19,8 +19,8 @@ public class GameBoard extends HashMap<Integer, Character> {
         }
     }
 
-    public void makeMove(int move, char gamePiece) {
-                this.put(move, gamePiece);
+    public void makeMove(int move, Token token) {
+                this.put(move, token.getSymbol());
     }
 
 }

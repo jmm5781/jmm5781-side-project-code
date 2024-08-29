@@ -6,7 +6,7 @@ public class ConsoleManager {
         this.input = input;
     }
 
-    public void printWelcomeMessage() {
+    public void welcome() {
         System.out.println("\n================ TIC - TAC - TOE ================");
         System.out.println("    ---------------------------------------");
         System.out.println("    *** Hello and welcome to the game! ***");
@@ -14,63 +14,69 @@ public class ConsoleManager {
         System.out.println("=================================================\n");
     }
 
-    public char promptUserToChooseXorO(Scanner input) {
-        String userResponse = "";
+    public Token chooseXO(Scanner input) {
+        String response = "";
+
         boolean done = false;
         while (!done) {
             System.out.print("Choose X or O\t");
-            userResponse = input.nextLine();
-            if(Utility.isValidResponseXorO(userResponse)) {
+            response = input.nextLine();
+            if(Utility.isXO(response)) {
                 done = true;
             } else {
                 System.out.println("Invalid response, please choose X or O");
             }
         }
-        return Character.toUpperCase(userResponse.charAt(0));
+
+        var token = new Token(response);
+        return token;
     }
 
-    public int promptUserToMakeMove(Scanner input, GameBoard gameBoard, char gamePiece) {
-        String userResponse = "";
-        int move = 0;
+    public int playerMove(Scanner input, GameBoard gameBoard, Token token) {
+        String response = "";
+        int square = 0;
         boolean done = false;
 
         while (!done) {
             System.out.print("Enter a number [1-9]: ");
-            userResponse = input.nextLine();
-            if (Utility.isValidResponse1to9(userResponse)) {
-                move = Integer.parseInt(userResponse);
+            response = input.nextLine();
+            if (Utility.is1to9(response)) {
+                square = Integer.parseInt(response);
             } else {
                 System.out.println("Invalid response, please choose a number from 1 to 9");
                 continue;
             }
 
-            if (gameBoard.get(move) == 'X' || gameBoard.get(move) == 'O' ) {
-                System.out.println("Square " + move + " is already occupied! Choose an unoccupied square [1-9]: ");
+            if (gameBoard.get(square) == 'X' || gameBoard.get(square) == 'O' ) {
+                System.out.println(square + " is already occupied! Choose an unoccupied space [1-9]: ");
             } else {
-                gameBoard.makeMove(move, gamePiece);
+                gameBoard.makeMove(square, token);
                 done = true;
             }
         }
 
-        return move;
+        return square;
     }
 
-    public boolean promptUserToPlayAgain(Scanner input) {
-        String userResponse = "";
+    public boolean playAgain(Scanner input) {
+        String response = "";
+
         boolean done = false;
         while (!done) {
             System.out.println("Game Over! Would you like to play again? (Y/N)");
-            userResponse = input.nextLine();
-            if(Utility.isValidResponseYorN(userResponse)) {
+
+            response = input.nextLine();
+            if(Utility.isYN(response)) {
                 done = true;
             } else {
                 System.out.println("Invalid response, please choose Y or N");
             }
         }
-        return userResponse.equalsIgnoreCase("N");
+
+        return response.equalsIgnoreCase("Y");
     }
 
-    public void printGoodbyeMessage() {
+    public void goodbye() {
         System.out.println("\n================ TIC - TAC - TOE ================");
         System.out.println("    ---------------------------------------");
         System.out.println("          *** Thanks for Playing! ***");
