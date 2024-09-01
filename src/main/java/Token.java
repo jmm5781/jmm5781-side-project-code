@@ -4,7 +4,7 @@ public class Token {
     private char symbol;
 
     public Token(char symbol) {
-        this.symbol = symbol;
+        this.symbol = Character.toUpperCase(symbol);
     }
 
     public char getSymbol() {
@@ -26,5 +26,10 @@ public class Token {
     @Override
     public int hashCode() {
         return Objects.hash(symbol);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(symbol);
     }
 }

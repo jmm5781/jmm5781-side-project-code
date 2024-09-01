@@ -1,3 +1,4 @@
+import java.util.EnumMap;
 import java.util.Scanner;
 
 /**************
@@ -63,25 +64,37 @@ public class Application {
             GameBoard gameBoard = new GameBoard();
 
             int turn = 1;
-            boolean isWinner = false;
             Token currentToken = new Token(player1Token.getSymbol()); // TODO: make a Player class
 
             int currentPlayerMove = 0;
-            while (turn <= MAX_TURNS && !isWinner) {
+            while (turn <= MAX_TURNS && !gameBoard.hasWinner()) {
                 System.out.println("\n " + currentToken + "'s turn");
 
                 gameBoard.printBoard();
 
-                System.out.print("\nPlayer " + currentToken + ": "); // TODO -- should say Player 1 or 2
+                System.out.print("\n" + currentToken + ": "); // TODO -- should say Player 1 or 2
 
                 currentPlayerMove = consoleManager.playerMove(input, gameBoard, currentToken);
                 gameBoard.makeMove(currentPlayerMove, currentToken);
-                currentToken.setSymbol(currentToken.getSymbol() == 'X' ? 'O' : 'X');
 
+                // If current player just made the winning move, break out of
+                // the loop and end the game.
+                if (gameBoard.checkWinner(currentToken))
+                    break;
+
+                currentToken.setSymbol(currentToken.getSymbol() == 'X' ? 'O' : 'X');
                 turn++;
             }
 
             gameBoard.printBoard();
+
+            System.out.println();
+            if (gameBoard.hasWinner()) {
+                System.out.println(gameBoard.getWinner().getSymbol() + " is the winner!");
+            } else {
+                System.out.println("It's a draw!");
+            }
+            System.out.println();
 
             done = !consoleManager.playAgain(input);
         }

@@ -28,7 +28,7 @@ public class ConsoleManager {
             }
         }
 
-        var token = new Token(response);
+        Token token = new Token(response.charAt(0));
         return token;
     }
 
