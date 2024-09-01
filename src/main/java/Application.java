@@ -2,15 +2,24 @@ import java.util.EnumMap;
 import java.util.Scanner;
 
 /**************
+ *
+ * Tic-tac-toe game
+ *
+ * First project written on my own. Goal is to explore Java object oriented
+ * programming and test out my knowledge of basic principles with an
+ * application featuring a game loop and user I/O.
+ *
  * TODO
+ *
+ * Unit tests
+ *
  * Make a win condition check using
- *      (1) bitboards: at least 9 bits (use a short??)
+ *      (1) bitboards: 9 bits
  *      -or-
- *      (2) map lookup and comparison
+ *      (2) map lookup and comparison [DONE]
  * Check for invalid int input [1..9] with try/catch
- * Override toString to print the com.github.jmm5781.model.GameBoard
  * Make a Player class with human and bot options
- * Put the game pieces X, O into a class and/or as properties of Player class
+ * Put the game pieces X, O into a class [DONE] and/or as properties of Player class
  * Add some ASCII art: https://www.asciiart.eu/computers/game-consoles
  * Try changing text color using ASCII escape codes (results may vary by console, terminal or OS)
  * Add some sounds: https://pixabay.com/sound-effects/search/retro%20games/, Java Sound API
@@ -31,7 +40,7 @@ import java.util.Scanner;
  * Make it 3D (3x3x3)
  * Add graphics
  *
- * [DONE] Make a com.github.jmm5781.model.GameBoard map (extend HashMap or make it an instance variable)
+ * [DONE] Make a map (extend HashMap or make it an instance variable)
  * [DONE] Print the com.github.jmm5781.model.GameBoard
  * [DONE] Prevent moving onto an already occupied square
  */
